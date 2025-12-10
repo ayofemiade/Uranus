@@ -16,12 +16,14 @@ const teamMembers = [
 // Function to create a property card
 function createPropertyCard(property) {
     return `
-        <div class="property-card">
+        <div class="property">
             <img src="${property.image}" alt="${property.title}">
-            <h3>${property.title}</h3>
-            <p>Type: ${property.type}</p>
-            <p>Price: $${property.price.toLocaleString()}</p>
-            <a href="property-details.html?id=${property.id}" class="btn">View Details</a>
+            <div class="property-info">
+                <h3>${property.title}</h3>
+                <p>Type: ${property.type}</p>
+                <p>Price: $${property.price.toLocaleString()}</p>
+                <a href="property-details.html?id=${property.id}" class="btn">View Details</a>
+            </div>
         </div>
     `;
 }
@@ -72,10 +74,10 @@ function displayPropertyDetails() {
 }
 
 // Event listener for form submission
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your message. We will get back to you soon!');
             contactForm.reset();
@@ -124,7 +126,7 @@ function isPriceInRange(price, range) {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
@@ -136,57 +138,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-     // Mobile Menu Toggle
-     const menuToggle = document.createElement('button');
-     menuToggle.classList.add('menu-toggle');
-     menuToggle.innerHTML = `
+    // Mobile Menu Toggle
+    const menuToggle = document.createElement('button');
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.innerHTML = `
          <span class="bar"></span>
          <span class="bar"></span>
          <span class="bar"></span>
      `;
-     
-     const nav = document.querySelector('nav');
-     const navLinks = document.querySelector('.nav-links');
-     
-     // Insert menu toggle button before nav links
-     nav.insertBefore(menuToggle, navLinks);
-     
-     menuToggle.addEventListener('click', function() {
-         navLinks.classList.toggle('active');
-         menuToggle.classList.toggle('active');
-     });
- 
-     // Close menu when a link is clicked
-     navLinks.querySelectorAll('a').forEach(link => {
-         link.addEventListener('click', function() {
-             navLinks.classList.remove('active');
-             menuToggle.classList.remove('active');
-         });
-     });
-     const mainImage = document.getElementById('main-image');
-     const thumbnails = document.querySelectorAll('.thumbnail');
-     const contactButton = document.getElementById('contact-agent');
- 
-     thumbnails.forEach(thumbnail => {
-         thumbnail.addEventListener('click', function() {
-             mainImage.src = this.src;
-             thumbnails.forEach(t => t.classList.remove('active'));
-             this.classList.add('active');
-         });
-     });
- 
-     contactButton.addEventListener('click', function() {
-         alert('Thank you for your interest! An agent will contact you shortly.');
-     });
- 
-    
-     
-    
-     });
 
- 
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
 
-     
+    // Insert menu toggle button before nav links
+    nav.insertBefore(menuToggle, navLinks);
+
+    menuToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+    const mainImage = document.getElementById('main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const contactButton = document.getElementById('contact-agent');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function () {
+            mainImage.src = this.src;
+            thumbnails.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    contactButton.addEventListener('click', function () {
+        alert('Thank you for your interest! An agent will contact you shortly.');
+    });
+
+
+
+
+});
+
+
+
+
 
 
 
